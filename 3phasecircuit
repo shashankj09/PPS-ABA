@@ -1,0 +1,36 @@
+#include<stdio.h>
+#include<math.h>
+
+void main()
+{
+    int lv, lc, pc, pv,load, n;
+    
+    printf("Enter the circuit type(1/2) : 1.STAR 2.DELTA\n");
+    scanf("%d",&n);
+    
+    printf("Enter the line voltage in volts : ");
+    scanf("%d",&lv);
+    
+    printf("Enter the load in ohms: ");
+    scanf("%d",&load);
+    
+    if(n == 1)
+    {
+        pv = (1/sqrt(3)) * lv;
+        pc = pv/load;
+        lc = pc;
+    }
+    else if(n == 2)
+    {
+        pv = lv;
+        pc = pv/load;
+        lc = sqrt(3) * pc;
+    }
+    else
+    printf("Invalid Entry");
+    
+    printf("Line current = %d Amps\n",lc);
+    printf("Phase current = %d Amps\n",pc);
+    printf("Phase voltage = %d Volts\n",pv);
+
+}
